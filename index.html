@@ -1,25 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preppy</title>
 
-    <link rel="stylesheet" href="style.css">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.min.js"></script>
+    <title>Preppy ❤️</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.min.js">
+    </script>
+
 </head>
+
 
 <body>
 
 <div id="game"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.min.js"></script>
 
-<script src="scripts/preload.js"></script>
-<script src="scripts/create.js"></script>
-<script src="scripts/update.js"></script>
-<script src="scripts/main.js"></script>
+<!-- ========================= -->
+<!-- GAME FILES -->
+<!-- ========================= -->
+
+<script src="scripts/globals.js?v=7"></script>
+
+<script src="scripts/preload.js?v=7"></script>
+
+<script src="scripts/create.js?v=7"></script>
+
+<script src="scripts/update.js?v=7"></script>
+
+<script src="scripts/ui.js?v=7"></script>
+
+<script src="scripts/birthday.js?v=7"></script>
+
+
+<script>
+
+// ==========================================
+// FINAL GAME CONFIG
+// ==========================================
+
+const config = {
+
+    type: Phaser.AUTO,
+
+    width: 800,
+    height: 450,
+
+    parent: "game",
+
+    backgroundColor: "#ffffff",
+
+    pixelArt: true,
+
+
+    // ======================================
+    // SCALE
+    // ======================================
+
+    scale: {
+
+        mode:
+            Phaser.Scale.FIT,
+
+        autoCenter:
+            Phaser.Scale.CENTER_BOTH
+
+    },
+
+
+    // ======================================
+    // PHYSICS
+    // ======================================
+
+    physics: {
+
+        default: "arcade",
+
+        arcade: {
+
+            gravity: {
+
+                y: 700
+
+            },
+
+            debug: false
+
+        }
+
+    },
+
+
+    // ======================================
+    // FINAL SCENE ORDER
+    //
+    // Level 1 starts automatically.
+    //
+    // After collecting all 8 hearts:
+    //
+    // Level 1
+    //      ↓
+    // Door unlocks
+    //      ↓
+    // Birthday Room
+    //      ↓
+    // Wish
+    //      ↓
+    // Celebration
+    //      ↓
+    // Letter
+    // ======================================
+
+    scene: [
+
+        {
+
+            key: "Level1",
+
+            preload: preload,
+
+            create: create,
+
+            update: update
+
+        },
+
+
+        BirthdayScene
+
+    ]
+
+};
+
+
+// ==========================================
+// START GAME
+// ==========================================
+
+const game =
+    new Phaser.Game(config);
+
+</script>
+
 
 </body>
-</html>
+
+    </html>
