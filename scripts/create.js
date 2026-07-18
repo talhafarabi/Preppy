@@ -440,7 +440,7 @@ function create() {
         );
 
 
-    gameState.player.setScale(1);
+    gameState.player.setScale(0.12);
 
 
     gameState.player
